@@ -46,16 +46,22 @@
 body{
     background: url(bg.png)
 }
+#formregis{
+position: absolute;
+bottom:100px;
+left:100px;
+}
+.form-group{
+    width: 32%;
+    float: left;
+}
 </style>	
 		
 	</head>
 	<body class="homepage"  itemscope="" itemtype="https://www.haravan.com">
 		
 		<form id="formregis" class="form-horizontal">
-            <fieldset>
-            
-            <!-- Form Name -->
-            <legend>Đăng ký</legend>
+         
             
             <!-- Text input-->
             <div class="form-group">
@@ -68,7 +74,7 @@ body{
             
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="phone">Số điện thoại</label>  
+              
               <div class="col-md-4">
               <input id="phone" name="phone" type="text" placeholder="Số điện thoại" class="form-control input-md" required="">
                 
@@ -77,14 +83,14 @@ body{
             
             <!-- Button -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="singlebutton"></label>
+             
               <div class="col-md-4">
                   <input type="hidden" value="regis" name="action">
-                <button id="bigpenregis" name="singlebutton" class="btn btn-primary">Đăng ký</button>
+                <button id="bigpenregis" name="singlebutton" class="btn btn-danger">Đăng ký</button>
               </div>
             </div>
             
-            </fieldset>
+            
             </form>
             <script>
         function regiscompleted(data){
