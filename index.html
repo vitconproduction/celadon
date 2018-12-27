@@ -50,10 +50,13 @@
 body{
     background: url(bg.png)
 }
-#formregis{
+#formregis,.loadding{
 position: absolute;
 bottom:100px;
 left:100px;
+}
+.loadding{
+    display: none;
 }
 .form-horizontal .form-group{
     width: 30%;
@@ -73,7 +76,7 @@ left:100px;
 	<body class="homepage"  itemscope="" itemtype="https://www.haravan.com">
 		
 		<form id="formregis" class="form-horizontal">
-         
+         <img class="loadding" scr="https://loading.io/spinners/microsoft/index.svg">
             
             <!-- Text input-->
             <div class="form-group">
@@ -106,6 +109,7 @@ left:100px;
             </form>
             <script>
         function regiscompleted(data){
+            $(".loadding").hide();
             debugger
             if(data==0)
             {
@@ -118,7 +122,7 @@ left:100px;
         }
         $("#formregis").submit(function(){
          var data = $( "#formregis").serialize();
-         
+         $(".loadding").show();
             var url = "https://script.google.com/macros/s/AKfycbzvIz2jElp4t0W6I7Eq-al0665TJJfkZuHarM59YylAQyRhyBk/exec";
             var request = jQuery.ajax({
         url:url,
