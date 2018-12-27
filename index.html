@@ -33,7 +33,7 @@
 <meta itemprop="image" content="" /> 
 <meta name="keywords" content="" />
 	
-
+<script src="//hstatic.net/0/0/global/design/js/jquery.min.1.11.0.js"></script>
  <link href='//hstatic.net/0/0/global/design/haravan/h_font/brandonnew/brandontext-font.min.css' rel='stylesheet' type='text/css'  media='all'  /> 
 		<link href='//hstatic.net/0/0/global/design/plugins/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'  media='all'  /> 
 		<style>/*!
@@ -51,7 +51,7 @@ body{
 	</head>
 	<body class="homepage"  itemscope="" itemtype="https://www.haravan.com">
 		
-		<form class="form-horizontal">
+		<form id="formregis" class="form-horizontal">
             <fieldset>
             
             <!-- Form Name -->
@@ -79,12 +79,38 @@ body{
             <div class="form-group">
               <label class="col-md-4 control-label" for="singlebutton"></label>
               <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Đăng ký</button>
+                  <input type="hidden" value="regis" name="action">
+                <button id="bigpenregis" name="singlebutton" class="btn btn-primary">Đăng ký</button>
               </div>
             </div>
             
             </fieldset>
             </form>
-            
+            <script>
+        function regiscompleted(data){
+            if(data!="")
+            {
+        window.location.href="/thanh-cong.html";
+        }
+        else{
+            alert("Số điện thoại này đã được đăng ký")
+        }
+        }
+        $("#formregis").submit(function(){
+         var data = $( "#formregis").serialize();
+         
+            var url = "https://script.google.com/macros/s/AKfycbzvIz2jElp4t0W6I7Eq-al0665TJJfkZuHarM59YylAQyRhyBk/exec";
+            var request = jQuery.ajax({
+        url:url,
+                    data:data,
+              crossDomain: true,
+              method: "POST",
+              dataType: "json"
+            }).always(function( msg ) {
+            eval(msg.responseText)
+          });;
+          return false;
+        })
+                    </script>
 	</body>
 </html>
