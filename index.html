@@ -48,12 +48,12 @@
 
 
         body{
-    background: url(bg.png)
+    background: url(https://vitconproduction.github.io/celadon/bg.png)
 }
 #formregis{
 position: absolute;
-bottom:100px;
-left:100px;
+bottom:30%;
+left:20%;
 opacity: 0.8;
 }
 .loadding{
@@ -74,13 +74,24 @@ padding-left: 30px;
         border:0;
     }
 .form-horizontal .form-group{
-    width: 30%;
-    float: left;
-    min-width:300px;
+    width: 50%;
+    float: none;
+    min-width:380px;
     margin-left: 0;
+    text-align:center;
 }
 .thanks{
     display:none;
+}
+.highlight{
+    color: #ffffff;
+    font-family: Helvetica;
+    font-size: 16px;
+}
+.noted{
+    color: #ffffff;
+    font-family: Helvetica;
+    font-size: 12px;
 }
 @media only screen and (min-width: 768px) {
    body{background-position-y: -30px;}
@@ -100,7 +111,7 @@ padding-left: 30px;
 @media only screen and (max-width: 768px) {
     .thanks{
     position: absolute;
-    top: 50px;
+    top: 80px;
     margin: auto;
     width: 100%;
     z-index: 9999;
@@ -116,9 +127,10 @@ padding-left: 30px;
 
     }
     #formregis{
-    position: absolute;
-    top:80px;
-    left: 0;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-100%);
     text-align: center;
     bottom: auto;
     opacity: 0.9;
@@ -131,16 +143,25 @@ padding-left: 30px;
 
 </head>
 
-<body class="homepage" itemscope="" itemtype="https://www.haravan.com">
-    <img class="thanks" src="thanks.png">
+<body class="homepage" >
+    <img class="thanks" src="https://vitconproduction.github.io/celadon/thanks.png">
     <form id="formregis" class="form-horizontal">
         <img class="loadding" src="https://loading.io/spinners/microsoft/index.svg">
+
+        <!-- Highlight Text input-->
+        <div class="form-group">
+
+            <div class="col-md-12">
+                <p class="highlight">Only Applicanle For Online Registration</p>
+                <p class="highlight">Ưu Đãi Chỉ Áp Dụng Cho Khách Hàng <br> Đăng Ký Online</p>
+            </div>
+        </div>
 
         <!-- Text input-->
         <div class="form-group">
 
             <div class="col-md-12">
-                <input id="name" name="name" type="text" placeholder="Họ và tên" class="form-control input-md" required="">
+                <input id="name" name="name" type="text" placeholder="Fullname | Họ và tên" class="form-control input-md" required="">
 
             </div>
         </div>
@@ -149,7 +170,7 @@ padding-left: 30px;
         <div class="form-group">
 
             <div class="col-md-12">
-                <input id="phone" name="phone" type="text" placeholder="Số điện thoại" class="form-control input-md"
+                <input id="phone" name="phone" type="text" placeholder="Your Phone | Số điện thoại" class="form-control input-md"
                     required="">
 
             </div>
@@ -160,10 +181,17 @@ padding-left: 30px;
 
             <div class="col-md-12">
                 <input type="hidden" value="regis" name="action">
-                <button id="bigpenregis" name="singlebutton" class="btn btn-danger">Đăng ký</button>
+                <button id="bigpenregis" name="singlebutton" class="btn btn-danger">Registration - Đăng ký</button>
             </div>
         </div>
 
+        <!-- Noted Text input-->
+        <div class="form-group">
+
+            <div class="col-md-12">
+                <p class="noted">* Your PERSONAL information is safe and will never be shared. <br> * Chúng tôi đảm bảo thông tin của bạn được bảo mật tuyệt đối.</p>
+            </div>
+        </div>
 
     </form>
     <script>
