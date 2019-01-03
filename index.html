@@ -47,15 +47,7 @@
     <style>
 
 
-        body{
-    background: url(https://vitconproduction.github.io/celadon/bg.png)
-}
-#formregis{
-position: absolute;
-bottom:30%;
-left:20%;
-opacity: 0.8;
-}
+
 .loadding{
     display: none;
     bottom: 0;
@@ -93,8 +85,20 @@ padding-left: 30px;
     font-family: Helvetica;
     font-size: 12px;
 }
+img{max-width: 100%}
 @media only screen and (min-width: 768px) {
-   body{background-position-y: -30px;}
+    #formregis{
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 380px;
+}
+    .bg-mobile{
+        display: none
+    }
+   body{background-position-y: -30px;    position: relative;}
    .thanks{
        width: 500px;
         position: absolute;
@@ -105,10 +109,25 @@ padding-left: 30px;
     margin: auto;
     z-index: 9999;
     }
+    .phonewrap{
+        position:relative;
+    }
+    .error {
+    color: #f9f9f9;
+    display: block;
+    text-align: left;
+    position: absolute;
+    left: 100%;
+    width: 300px;
+    top: 0;
+}
 
     }
 
 @media only screen and (max-width: 768px) {
+    .bg-desktop{
+        display: none;
+    }
     .thanks{
     position: absolute;
     top: 80px;
@@ -120,31 +139,29 @@ padding-left: 30px;
     float:none;
      margin-left: -15px;
     }
-    body{   
-        background: url(bg-mobile.png) #323232;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    }
+ 
     #formregis{
-    position: fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-100%);
-    text-align: center;
-    bottom: auto;
-    opacity: 0.9;
+    margin: auto;
+    width: 380px;
 }
 .form-horizontal .form-group{
     width:100%
     }
     }
+    .error{
+        color:#f9f9f9;
+        display: none;
+        text-align:left;
+    }
+   body{    position: relative;    background: #323232;
+   }
 </style>
 
 </head>
 
 <body class="homepage" >
-    <img class="thanks" src="https://vitconproduction.github.io/celadon/thanks.png">
+    <img class="bg-desktop" src="https://vitconproduction.github.io/celadon/bg.jpeg">
+    <img class="bg-mobile" src="https://vitconproduction.github.io/celadon/bg-mobile.png">
     <form id="formregis" class="form-horizontal">
         <img class="loadding" src="https://loading.io/spinners/microsoft/index.svg">
 
@@ -169,10 +186,13 @@ padding-left: 30px;
         <!-- Text input-->
         <div class="form-group">
 
-            <div class="col-md-12">
-                <input id="phone" name="phone" type="text" placeholder="Your Phone | Số điện thoại" class="form-control input-md"
+            <div class="col-md-12 phonewrap">
+                <input id="phone" name="phone" type="number" placeholder="Your Phone | Số điện thoại" class="form-control input-md"
                     required="">
-
+          <span class="error">
+              * Your phone number is already exits<br>
+              * Số điện thoại này đã tồn tại
+              </span>
             </div>
         </div>
 
@@ -200,12 +220,13 @@ padding-left: 30px;
             debugger
             if (data == 0) {
                 $("#bigpenregis").attr("disabled", "disabled");
-                $(".thanks").show();
+                window.location.href="/thanks.html"
             } else {
-alert("Số điện thoại của bạn đã được đăng ký");
+            $(".error").show()
             }
         }
         $("#formregis").submit(function () {
+            $(".error").hide()
             var data = $("#formregis").serialize();
             $(".loadding").show();
             var url =
